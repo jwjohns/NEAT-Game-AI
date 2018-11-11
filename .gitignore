@@ -1,0 +1,6 @@
+neat-checkpoint-*
+.vscode/
+*.pyc
+*.gv
+*.gv.svg
+*.zip
