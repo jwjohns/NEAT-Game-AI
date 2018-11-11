@@ -79,7 +79,9 @@ def eval_genomes(genomes, config):
             # rings add to fitness score
             if rings > prev_frame_rings:
                 fitness_current += 5
-                prev_frame_rings += rings
+                prev_frame_rings = rings
+            elif rings == prev_frame_rings:
+                pass
             else:
                 fitness_current -= 20
             
