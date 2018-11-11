@@ -3,7 +3,6 @@ import numpy as np
 import cv2 
 import neat
 import pickle
-import visualize
 
 env = retro.make('SonicTheHedgehog-Genesis', 'GreenHillZone.Act1')
 
