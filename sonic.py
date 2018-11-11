@@ -37,6 +37,7 @@ def eval_genomes(genomes, config):
         # setup tracking of rings and time
         prev_frame_rings = 0
         prev_frame_time = 0
+        prev_frame_xpos = 0
 
         done = False
         #cv2.namedWindow("main", cv2.WINDOW_NORMAL)
@@ -73,8 +74,12 @@ def eval_genomes(genomes, config):
 
             # You done fucked up going backwards bruh...
             if xpos < xpos_start:
+                done = True
+            elif xpos < (prev_frame_xpos - 500):
                 fitness_current -= 2
-            
+                
+            prev_frame_xpos = xpos
+
             # rings add to fitness score
             if rings > prev_frame_rings:
                 fitness_current += 5
@@ -110,8 +115,8 @@ def eval_genomes(genomes, config):
             if done or counter == 500:
                 done = True
                 print(genome_id, fitness_current)
-                print("Reward: " + str(rew))
-                print("Fitness: " + str(fitness_current))
+                # print("Reward: " + str(rew))
+                # print("Fitness: " + str(fitness_current))
     
             genome.fitness = fitness_current
                 
