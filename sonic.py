@@ -62,6 +62,8 @@ def eval_genomes(genomes, config):
             
             ob, rew, done, info = env.step(nnOutput)
 
+            # START OF FITNESS CALCULATIONS # 
+
             # Set variables from the game ram
             xpos = info['x']
             xpos_end = info['screen_x_end']
